@@ -35,7 +35,10 @@ var cli = meow({
         'timeout'
     ],
     alias: {
-        p: 'polling'
+        p: 'polling',
+        v: 'verbose',
+        i: 'interval',
+        t: 'timeout'
     }
 });
 
@@ -82,7 +85,7 @@ function getPolling(str) {
 /**
  * pollingFunction
  *
- * @return {string} [description]
+ * @return {string} target string
  */
 function pollingFunction() {
     return document.documentElement.innerHTML;

@@ -1,6 +1,6 @@
 {
   "name": "phantom-fetch-cli",
-  "version": "0.0.1",
+  "version": "0.0.0",
   "description": "fetch webpage content after phantom rendered",
   "main": "index.js",
   "bin": {
