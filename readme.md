@@ -1,6 +1,8 @@
-# phantom-fetch
+# phantom-fetch-cli
 
 > fetch webpage content after phantom rendered
+
+This is by no means production ready! It was meant mainly for hackish things. Beware!
 
 ## Install
 
@@ -12,6 +14,7 @@ $ npm install -g phantom-fetch-cli
 
 ```sh
 $ phantom-fetch --help
+
   Usage
       $ phantom-fetch <url>  
 
@@ -25,3 +28,7 @@ $ phantom-fetch --help
       -i, --interval                      interval
       -t, --timeout                       timeout
 ```
+
+## Related
+
+- [phantom-fetch](https://github.com/danyshaanan/phantom-fetch)
