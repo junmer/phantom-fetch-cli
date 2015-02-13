@@ -18,7 +18,7 @@
   "author": "junmer",
   "license": "ISC",
   "dependencies": {
-    "phantom-fetch": "0.0.1",
-    "meow": "^3.0.0"
+    "meow": "^3.0.0",
+    "phantom": "^0.7.2"
   }
 }

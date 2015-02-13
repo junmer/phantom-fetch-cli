@@ -6,8 +6,7 @@
  */
 
 /* eslint-env node */
-
-var fetcher = require('phantom-fetch');
+var phantom = require('phantom');
 var meow = require('meow');
 
 var cli = meow({
@@ -20,46 +19,24 @@ var cli = meow({
         '  $ phantom-fetch //www.baidu.com > baidu.txt',
         '',
         'Options',
-        '  -p, --polling                       polling function',
-        '  -v, --verbose                       verbose',
-        '  -i, --interval                      interval',
-        '  -t, --timeout                       timeout'
+        '  -p, --polling                       polling function'
     ].join('\n')
 }, {
-    'boolean': [
-        'verbose'
-    ],
     string: [
-        'polling',
-        'interval',
-        'timeout'
+        'polling'
     ],
     alias: {
-        p: 'polling',
-        v: 'verbose',
-        i: 'interval',
-        t: 'timeout'
+        p: 'polling'
     }
 });
 
 /**
- * fetchCallback
+ * pollingFunction
  *
- * @param  {Error} err    phantom err
- * @param  {string} id     task id
- * @param  {string} result renderd html
- * @param  {Function} exit   phantom exit
+ * @return {string} target string
  */
-function fetchCallback(err, id, result, exit) {
-
-    if (err) {
-        console.error(err);
-        throw (err);
-    }
-
-    process.stdout.write(result);
-
-    exit();
+function pollingFunction() {
+    return document.querySelector('html').innerHTML;
 }
 
 /**
@@ -71,7 +48,7 @@ function fetchCallback(err, id, result, exit) {
 function getPolling(str) {
 
     if (!str) {
-        return;
+        return pollingFunction;
     }
 
     try {
@@ -80,16 +57,10 @@ function getPolling(str) {
     catch (ex) {
         throw (ex);
     }
+
+    return pollingFunction;
 }
 
-/**
- * pollingFunction
- *
- * @return {string} target string
- */
-function pollingFunction() {
-    return document.documentElement.innerHTML;
-}
 
 /**
  * fetch
@@ -99,16 +70,25 @@ function pollingFunction() {
  */
 function fetch(url, options) {
 
-    fetcher.options(options);
+    options['load-images'] = 'no';
 
-    var config = {
-        id: Date.now(),
-        url: url,
-        callback: fetchCallback,
-        pollingFunction: getPolling(options.polling) || pollingFunction
-    };
+    phantom.create(function (ph) {
+        ph.createPage(function (page) {
 
-    fetcher.fetch(config);
+            page.open(url, function (status) {
+
+                // if (status !== 'success') {
+                //     throw new Error('status: ' + status);
+                // }
+
+                page.evaluate(getPolling(options.polling), function (result) {
+                    process.stdout.write(result);
+                    ph.exit();
+                });
+
+            });
+        });
+    }, options);
 
 }
 

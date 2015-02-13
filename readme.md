@@ -24,11 +24,4 @@ $ phantom-fetch --help
 
     Options
       -p, --polling                       polling function
-      -v, --verbose                       verbose
-      -i, --interval                      interval
-      -t, --timeout                       timeout
 ```
-
-## Related
-
-- [phantom-fetch](https://github.com/danyshaanan/phantom-fetch)
