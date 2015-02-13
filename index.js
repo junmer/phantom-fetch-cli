@@ -15,8 +15,8 @@ var cli = meow({
         '  $ phantom-fetch <url>',
         '',
         'Example',
-        '  $ phantom-fetch //www.baidu.com',
-        '  $ phantom-fetch //www.baidu.com > baidu.txt',
+        '  $ phantom-fetch http://www.phantomjs.org/',
+        '  $ phantom-fetch http://www.phantomjs.org/ > phantomjs.txt',
         '',
         'Options',
         '  -p, --evaluate                       evaluate function'
@@ -87,11 +87,11 @@ function fetch(url, options) {
                 }
                 else {
                     ph.exit();
-                    console.error('open page fail');
                     process.exit(-1);
                 }
 
             });
+
         });
     }, options);
 

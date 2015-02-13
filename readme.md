@@ -27,8 +27,8 @@ $ phantom-fetch --help
       $ phantom-fetch <url>  
 
     Example
-      $ phantom-fetch //www.baidu.com
-      $ phantom-fetch //www.baidu.com > baidu.txt  
+      $ phantom-fetch http://www.phantomjs.org/
+      $ phantom-fetch http://www.phantomjs.org/ > phantomjs.txt  
 
     Options
       -e, --evaluate                       evaluate function

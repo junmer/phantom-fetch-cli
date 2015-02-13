@@ -5,4 +5,4 @@ before_script:
     - npm install -g phantomjs
     - npm link .
 script:
-    phantom-fetch //www.baidu.com
+    phantom-fetch "http://www.phantomjs.org/"
