@@ -1,4 +1,4 @@
-# phantom-fetch-cli
+# phantom-fetch-cli [![Build Status](http://img.shields.io/travis/junmer/phantom-fetch-cli.svg?style=flat)](https://travis-ci.org/junmer/phantom-fetch-cli)
 
 > fetch webpage content after phantom rendered
 
