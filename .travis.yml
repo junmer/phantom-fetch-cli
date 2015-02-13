@@ -1,7 +1,8 @@
 language: node_js
 node_js:
-  - '0.10'
-
-install: npm link .
-
-script: phantom-fetch //www.baidu.com
+    - '0.10'
+before_script:
+    - npm install phantomjs
+    - export PATH=$PATH:`npm bin`
+script:
+    phantom-fetch //www.baidu.com
