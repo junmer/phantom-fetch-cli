@@ -1,6 +1,6 @@
 {
   "name": "phantom-fetch-cli",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "fetch webpage content after phantom rendered",
   "main": "index.js",
   "bin": {
@@ -12,6 +12,8 @@
   "keywords": [
     "fetch",
     "phantom",
+    "cli",
+    "curl",
     "spider"
   ],
   "repository": "https://github.com/junmer/phantom-fetch-cli.git",

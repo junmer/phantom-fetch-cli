@@ -2,9 +2,24 @@
 
 > fetch webpage content after phantom rendered
 
-This is by no means production ready! It was meant mainly for hackish things. Beware!
-
 ## Install
+
+First, make sure PhantomJS is installed. This module expects the ```phantomjs``` binary to be in PATH somewhere. In other words, type this:
+
+```sh
+$ phantomjs
+```
+
+If that works, so will [phantomjs-node](https://github.com/sgentle/phantomjs-node). It's only been tested with PhantomJS 1.3, and almost certainly doesn't work with anything older.
+
+
+Install ```phantomjs``` like this:
+
+```sh
+$ npm install -g phantomjs
+```
+
+Install ```phantom-fetch-cli``` like this:
 
 ```sh
 $ npm install -g phantom-fetch-cli
