@@ -1,0 +1,24 @@
+{
+  "name": "phantom-fetch-cli",
+  "version": "0.0.1",
+  "description": "fetch webpage content after phantom rendered",
+  "main": "index.js",
+  "bin": {
+    "phantom-fetch": "index.js"
+  },
+  "files": [
+    "index.js"
+  ],
+  "keywords": [
+    "fetch",
+    "phantom",
+    "spider"
+  ],
+  "repository": "https://github.com/junmer/phantom-fetch-cli.git",
+  "author": "junmer",
+  "license": "ISC",
+  "dependencies": {
+    "phantom-fetch": "0.0.1",
+    "meow": "^3.0.0"
+  }
+}
