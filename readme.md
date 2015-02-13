@@ -33,3 +33,7 @@ $ phantom-fetch --help
     Options
       -e, --evaluate                       evaluate function
 ```
+
+
+---
+[![NPM](https://nodei.co/npm/phantom-fetch-cli.png?downloads=true&stars=true)](https://nodei.co/npm/phantom-fetch-cli/)
