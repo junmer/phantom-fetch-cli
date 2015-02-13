@@ -19,36 +19,36 @@ var cli = meow({
         '  $ phantom-fetch //www.baidu.com > baidu.txt',
         '',
         'Options',
-        '  -p, --polling                       polling function'
+        '  -p, --evaluate                       evaluate function'
     ].join('\n')
 }, {
     string: [
-        'polling'
+        'evaluate'
     ],
     alias: {
-        p: 'polling'
+        e: 'evaluate'
     }
 });
 
 /**
- * pollingFunction
+ * evaluateFunction
  *
  * @return {string} target string
  */
-function pollingFunction() {
+function evaluateFunction() {
     return document.querySelector('html').innerHTML;
 }
 
 /**
- * getPollingFunction
+ * getEvaluateFunction
  *
- * @param  {string} str pollingFunction str
- * @return {Function}     pollingFunction
+ * @param  {string} str evaluateFunction str
+ * @return {Function}     evaluateFunction
  */
-function getPolling(str) {
+function getEvaluate(str) {
 
     if (!str) {
-        return pollingFunction;
+        return evaluateFunction;
     }
 
     try {
@@ -58,7 +58,7 @@ function getPolling(str) {
         throw (ex);
     }
 
-    return pollingFunction;
+    return evaluateFunction;
 }
 
 
@@ -77,14 +77,19 @@ function fetch(url, options) {
 
             page.open(url, function (status) {
 
-                // if (status !== 'success') {
-                //     throw new Error('status: ' + status);
-                // }
+                if (status === 'success') {
 
-                page.evaluate(getPolling(options.polling), function (result) {
-                    process.stdout.write(result);
+                    page.evaluate(getEvaluate(options.evaluate), function (result) {
+                        process.stdout.write(result);
+                        ph.exit();
+                    });
+
+                }
+                else {
                     ph.exit();
-                });
+                    console.error('open page fail');
+                    process.exit(-1);
+                }
 
             });
         });

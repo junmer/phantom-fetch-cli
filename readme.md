@@ -4,22 +4,15 @@
 
 ## Install
 
-First, make sure PhantomJS is installed. This module expects the ```phantomjs``` binary to be in PATH somewhere. In other words, type this:
+First, make sure [PhantomJS](http://phantomjs.org/) is installed. This module expects the ```phantomjs``` binary to be in PATH somewhere. In other words, type this:
 
 ```sh
 $ phantomjs
 ```
 
-If that works, so will [phantomjs-node](https://github.com/sgentle/phantomjs-node). It's only been tested with PhantomJS 1.3, and almost certainly doesn't work with anything older.
+If that works, so will [phantomjs-node](https://github.com/sgentle/phantomjs-node) and `phantom-fetch-cli`. It's only been tested with PhantomJS 1.3, and almost certainly doesn't work with anything older.
 
-
-Install ```phantomjs``` like this:
-
-```sh
-$ npm install -g phantomjs
-```
-
-Install ```phantom-fetch-cli``` like this:
+Install `phantom-fetch-cli` like this:
 
 ```sh
 $ npm install -g phantom-fetch-cli
@@ -38,5 +31,5 @@ $ phantom-fetch --help
       $ phantom-fetch //www.baidu.com > baidu.txt  
 
     Options
-      -p, --polling                       polling function
+      -e, --evaluate                       evaluate function
 ```
